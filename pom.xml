@@ -71,8 +71,9 @@
                     <!-- If the MANIFEST.MF file in main.jar does not have a Main-Class attribute then you must specify the main class explicitly -->
                     <mainclass>Hello</mainclass>
                     <name>hello</name>
-                    <input>${build.directory}</input>
+                    <input>${project.build.directory}</input>
                     <mainjar>${project.build.finalName}.jar</mainjar>
+                    <dest>${project.basedir}/dist</dest>
                 </configuration>
             </plugin>
 
