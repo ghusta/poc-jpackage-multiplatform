@@ -1,0 +1,169 @@
+= POC : JPackage with multi-platform releases
+:toc:
+:imagesdir: assets/images
+
+== CLI command
+
+[source,bash]
+----
+jpackage --type app-image 
+----
+
+== JPackage options
+
+.jpackage - generic options
+|===
+| Name | Description
+
+| @<filename>
+| contains options
+
+| `type`
+| Valid values are {“app-image”, “exe”,
+“msi”, “rpm”, “deb”, “pkg”, “dmg”}.
+
+| `--app-version`
+| Version
+
+| `--copyright`
+| _<string>_
+
+| `--description`
+| _<string>_
+
+| `--help`
+|
+
+| `--name`
+| _<string>_
+
+| `--dest`
+| Path where the generated output file is placed (absolute path or relative
+to the current directory). Defaults to the current working directory.
+
+| `--temp`
+| Path of a new or empty directory used to create temporary files
+(absolute path or relative to the current directory). If specified, the temp
+dir will not be removed upon the task completion and must be removed
+manually. If not specified, a temporary directory will be created and
+removed upon the task completion.
+
+| `--vendor`
+| _<string>_
+
+| `--verbose`
+| Enables verbose output.
+
+| `--version`
+| Print the product version to the output stream and exit.
+
+|===
+
+.jpackage – options for creating the runtime image
+|===
+| Name | Description
+
+| _TODO_
+| _TODO_
+
+|===
+
+.jpackage – options for creating the application image
+|===
+| Name | Description
+
+| `--icon`
+| _<string>_
+
+| `--input`
+| Path of the input directory that contains the files to be packaged (absolute
+path or relative to the current directory). All files in the input directory will be
+packaged into the application image.
+
+|===
+
+.jpackage – options for creating the application launcher(s)
+|===
+| Name | Description
+
+| `--add-launcher`
+| Name of the launcher and a path to a properties file that contains a list of
+key-value pairs.
+
+| `--arguments <main class arguments>`
+| ...
+
+| `--java-options <java options>`
+| ...
+
+| `--main-class <class name>`
+| Qualified name of the application main class to execute. This option can only be
+used if --main-jar is specified.
+
+| `--main-jar <main jar file>`
+| The main JAR of the application, containing the main class (specified as a path
+relative to the input path). Either the --module or --main-jar option can be
+specified but not both.
+
+| `--module <module name>[/<main class>]`
+| ...
+
+|===
+
+.jpackage – platform-dependent options for creating the application launcher
+|===
+| Name | Description
+
+| ...
+| ...
+
+|===
+
+.jpackage – options for creating the application package
+|===
+| Name | Description
+
+| `--app-image <file path>`
+| Location of the predefined application image that is used to build an
+installable package (absolute path or relative to the current directory). See
+create-app-image mode options to create the application image.
+
+| ...
+| ...
+
+|===
+
+.jpackage – platform-dependent options for creating the application package
+|===
+| Name | Description
+
+| `--win-dir-chooser`
+| Adds a dialog to enable the user to choose a directory in which the
+product is installed. This option is available only when running on
+Windows.
+
+| `--win-menu`
+| Adds the application to the system menu. This option is available only
+when running on Windows.
+
+| `--win-menu-group <menu group name>`
+| Start Menu group in which this application is placed. This option is
+available only when running on Windows.
+
+| `--win-per-user-install`
+| Request to perform an install on a per-user basis. This option is
+available only when running on Windows.
+
+| `--win-shortcut`
+| Creates a desktop shortcut for the application. This option is available
+only when running on Windows.
+
+| ...
+| ...
+
+|===
+
+== References
+
+* https://openjdk.org/jeps/392
+* https://docs.oracle.com/en/java/javase/21/docs/specs/man/jpackage.html[The jpackage Command]
